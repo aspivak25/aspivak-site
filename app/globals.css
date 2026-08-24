@@ -26,3 +26,22 @@ body {
   background: var(--color-gold);
   color: var(--color-forest);
 }
+
+.intro-fill {
+  width: 0;
+  animation: introFill 1.5s cubic-bezier(0.65, 0, 0.35, 1) 0.35s forwards;
+}
+@keyframes introFill {
+  to {
+    width: 100%;
+  }
+}
+.intro-eyebrow {
+  opacity: 0;
+  animation: introFade 0.8s ease 0.1s forwards;
+}
+@keyframes introFade {
+  to {
+    opacity: 1;
+  }
+}

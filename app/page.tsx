@@ -1,4 +1,5 @@
 import Image from "next/image";
+import IntroLoader from "@/components/IntroLoader";
 import SubscribeForm from "@/components/SubscribeForm";
 
 const eyebrow = "text-xs tracking-[0.28em]";
@@ -471,6 +472,7 @@ function Footer() {
 export default function Page() {
   return (
     <main>
+      <IntroLoader />
       <Nav />
       <Hero />
       <PressBar />
