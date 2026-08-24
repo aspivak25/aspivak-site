@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #15261d;
+  --color-forest-deep: #0f1b15;
+  --color-ink: #0a120c;
+  --color-gold: #cc986d;
+  --color-gold-deep: #b07f53;
+  --color-gold-ink: #8f6640;
+  --color-cream: #f5eddb;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-forest);
+  color: var(--color-cream);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-forest);
+}
