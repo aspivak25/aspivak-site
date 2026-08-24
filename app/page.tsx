@@ -106,8 +106,9 @@ function Story() {
       label: "Age 18",
       title: "Revitasize",
       text: "Co-founded a cold-pressed juice company and grew it to 10+ locations across Toronto — before most people pick a major.",
-      img: null as string | null,
-      alt: "",
+      img: "/images/revitasize.jpg",
+      objectPosition: "50% 20%",
+      alt: "Aaron and the Revitasize team in the juice-kitchen days",
     },
     {
       label: "The exit",
