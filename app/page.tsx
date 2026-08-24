@@ -1,4 +1,5 @@
 import Image from "next/image";
+import BookingForm from "@/components/BookingForm";
 import IntroLoader from "@/components/IntroLoader";
 import SubscribeForm from "@/components/SubscribeForm";
 
@@ -173,7 +174,20 @@ function Story() {
 }
 
 function Speaking() {
-  const topics = ["MINDSET", "BUSINESS", "LEADERSHIP", "WEALTH", "HEALTH", "HAPPINESS"];
+  const keynotes = [
+    {
+      title: "No Founder Wins Alone",
+      text: "Why the network you build decides the company you build.",
+    },
+    {
+      title: "$0 to $48M: The Unsexy Truth",
+      text: "What actually scaled Hush — and what was a waste of four years.",
+    },
+    {
+      title: "Break the Belief",
+      text: "The goal-setting system 15,000 people have used to get unstuck.",
+    },
+  ];
   return (
     <section id="speaking" className="bg-forest px-6 py-20 md:px-16 md:py-28">
       <div className="flex flex-col gap-14">
@@ -197,24 +211,23 @@ function Speaking() {
           <div className="relative h-96 overflow-hidden md:h-[560px]">
             <Image src="/images/speaking-stage.jpg" alt="Aaron Spivak on stage at a Founders Club event" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover object-[50%_12%]" />
           </div>
-          <div className="relative h-96 overflow-hidden md:h-[560px]">
-            <Image src="/images/run.jpg" alt="Aaron Spivak leading a sunrise run" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover object-[50%_35%]" />
+          <div className="flex flex-col gap-7 md:justify-center">
+            <p className={`${eyebrow} text-gold`}>SIGNATURE KEYNOTES</p>
+            <div className="flex flex-col">
+              {keynotes.map((k) => (
+                <div key={k.title} className="flex flex-col gap-2 border-t border-cream/15 py-7">
+                  <p className="font-display text-2xl text-cream md:text-3xl">{k.title}</p>
+                  <p className="text-sm leading-relaxed text-cream/60">{k.text}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-        <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
-          <div className="flex flex-wrap gap-3">
-            {topics.map((t) => (
-              <span key={t} className="border border-gold/50 px-4 py-2.5 text-xs tracking-[0.16em] text-gold">
-                {t}
-              </span>
-            ))}
-          </div>
-          <a
-            href="mailto:aaron@aspivak.com?subject=Speaking%20inquiry"
-            className="shrink-0 bg-gold px-7 py-4 text-[13px] font-semibold tracking-[0.14em] text-forest transition hover:bg-gold-deep"
-          >
-            BOOK AARON TO SPEAK
-          </a>
+        <div className="flex flex-col gap-7 border border-gold/25 bg-forest-deep p-11">
+          <h3 className="font-display text-3xl font-medium text-cream md:text-4xl">
+            Bring Aaron to your stage.
+          </h3>
+          <BookingForm />
         </div>
       </div>
     </section>
@@ -346,6 +359,23 @@ function Coaching() {
 }
 
 function Podcast() {
+  const episodes = [
+    {
+      title:
+        "Scaling a Billion-Dollar Brand — with George Heaton of Represent",
+      href: "https://podcasts.apple.com/us/podcast/founder2founder-with-aaron-spivak/id1800303984",
+    },
+    {
+      title:
+        "Shelby Sapp Didn\u2019t Just Break Into Sales, She Rebuilt It For Women Everywhere",
+      href: "https://open.spotify.com/episode/2071dXormTC6QfSnu4NOAm",
+    },
+  ];
+  const platforms = [
+    { label: "APPLE PODCASTS", href: "https://podcasts.apple.com/us/podcast/founder2founder-with-aaron-spivak/id1800303984" },
+    { label: "SPOTIFY", href: "https://open.spotify.com/episode/2071dXormTC6QfSnu4NOAm" },
+    { label: "YOUTUBE", href: "https://www.youtube.com/watch?v=JZYz5FdY1wk" },
+  ];
   return (
     <section id="podcast" className="bg-forest px-6 py-20 md:px-16 md:py-28">
       <div className="flex flex-col gap-12">
@@ -354,27 +384,66 @@ function Podcast() {
           <p className={`${eyebrow} text-gold`}>LISTEN &amp; WATCH</p>
         </div>
         <div className="grid gap-10 lg:grid-cols-[1.5fr_1fr]">
-          <a
-            href="https://www.youtube.com/watch?v=F6lmW3vS_fM"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative flex min-h-[340px] flex-col justify-end gap-5 overflow-hidden border border-gold/25 bg-forest-deep p-8 md:p-13"
-          >
+          <div className="relative flex min-h-[460px] flex-col justify-end gap-5 overflow-hidden border border-gold/25 bg-forest-deep p-8 md:p-13">
             <Image
               src="/images/podcast-couch.jpg"
               alt=""
               fill
               sizes="(min-width: 1024px) 60vw, 100vw"
-              className="object-cover opacity-55 transition duration-500 group-hover:scale-[1.02] group-hover:opacity-65"
+              className="object-cover opacity-55"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-ink/20 to-ink/90" />
-            <p className="relative text-[11px] tracking-[0.24em] text-gold">FEATURED EPISODE</p>
-            <p className="relative font-display text-3xl font-medium leading-tight text-cream [text-wrap:balance] md:text-4xl">
-              &ldquo;I sold my company for $48,000,000 — and felt nothing.&rdquo;
+            <p className="relative text-[11px] tracking-[0.24em] text-gold">
+              THE PODCAST · HOSTED BY AARON
             </p>
-            <p className="relative text-sm text-cream/75">Reroot with Eamon &amp; Bec · May 2025</p>
-          </a>
+            <p className="relative font-display text-4xl font-medium leading-tight text-cream md:text-6xl">
+              Founder2Founder
+            </p>
+            <p className="relative max-w-xl text-sm leading-relaxed text-cream/75">
+              Raw and unfiltered — Aaron pulls back the curtain on what it
+              really takes to build something from the ground up.
+            </p>
+            <div className="relative flex flex-col">
+              {episodes.map((ep) => (
+                <a
+                  key={ep.href}
+                  href={ep.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border-t border-cream/15 py-4 font-display text-lg leading-snug text-cream transition hover:text-gold md:text-xl"
+                >
+                  {ep.title}
+                </a>
+              ))}
+            </div>
+            <div className="relative flex flex-wrap gap-3">
+              {platforms.map((pl) => (
+                <a
+                  key={pl.label}
+                  href={pl.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border border-gold/50 px-4 py-2.5 text-xs tracking-[0.16em] text-gold transition hover:bg-gold hover:text-forest"
+                >
+                  {pl.label}
+                </a>
+              ))}
+            </div>
+          </div>
           <div className="flex flex-col gap-10">
+            <p className={`${eyebrow} text-gold`}>AARON AS A GUEST</p>
+            <a
+              href="https://www.youtube.com/watch?v=F6lmW3vS_fM"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col gap-2.5 border-b border-cream/15 pb-8"
+            >
+              <p className="text-[11px] tracking-[0.24em] text-cream/50">PODCAST</p>
+              <p className="font-display text-2xl text-cream transition group-hover:text-gold">
+                &ldquo;I sold my company for $48,000,000 — and felt nothing.&rdquo;
+              </p>
+              <p className="text-sm text-cream/60">Reroot with Eamon &amp; Bec · May 2025</p>
+            </a>
             <a
               href="https://www.youtube.com/watch?v=QrkjlbCPz3U"
               target="_blank"
