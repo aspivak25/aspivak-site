@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import BookingForm from "@/components/BookingForm";
 import IntroLoader from "@/components/IntroLoader";
 import SubscribeForm from "@/components/SubscribeForm";
@@ -117,6 +118,7 @@ function Story() {
       img: "/images/hush.jpg",
       objectPosition: "50% 18%",
       alt: "Aaron Spivak in Hush gear at a launch event",
+      cta: { label: "THE STORY OF HUSH", href: "/hush" },
     },
     {
       label: "Today",
@@ -166,6 +168,14 @@ function Story() {
               <p className="font-display text-3xl italic text-gold-deep">{b.label}</p>
               <p className="text-[15px] font-semibold tracking-wide">{b.title}</p>
               <p className="text-[15px] font-light leading-relaxed text-forest/75">{b.text}</p>
+              {b.cta && (
+                <Link
+                  href={b.cta.href}
+                  className="self-start border border-forest/40 px-[18px] py-2.5 text-xs tracking-[0.16em] text-forest transition hover:bg-forest hover:text-cream"
+                >
+                  {b.cta.label}
+                </Link>
+              )}
             </div>
           ))}
         </div>
