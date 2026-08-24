@@ -76,7 +76,7 @@ function Hero() {
           alt="Aaron Spivak speaking on stage"
           fill
           sizes="100vw"
-          className="object-cover object-top"
+          className="object-cover object-[50%_15%]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-forest via-transparent to-transparent" />
       </div>
@@ -112,6 +112,7 @@ function Story() {
       title: "Hush",
       text: "Scaled Hush from $0 to $48 million in 48 months and sold it — a Canadian DTC story told on Dragons’ Den and beyond.",
       img: "/images/hush.jpg",
+      objectPosition: "50% 18%",
       alt: "Aaron Spivak in Hush gear at a launch event",
     },
     {
@@ -119,6 +120,7 @@ function Story() {
       title: "Investor & Founders Club",
       text: "Investing eight figures a year in companies like Othership, Coldture and GoodSport — and building Founders Club, the community where no founder wins alone.",
       img: "/images/founders-club.jpg",
+      objectPosition: "50% 30%",
       alt: "Aaron Spivak with members of Founders Club",
     },
   ];
@@ -142,7 +144,7 @@ function Story() {
               alt="Portrait of Aaron Spivak"
               fill
               sizes="(min-width: 1024px) 380px, 100vw"
-              className="object-cover"
+              className="object-cover object-[50%_25%]"
             />
           </div>
         </div>
@@ -151,7 +153,7 @@ function Story() {
             <div key={b.title} className="flex flex-col gap-4 border-t border-forest/20 pt-7">
               {b.img ? (
                 <div className="relative h-64 overflow-hidden">
-                  <Image src={b.img} alt={b.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
+                  <Image src={b.img} alt={b.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" style={{ objectPosition: b.objectPosition }} />
                 </div>
               ) : (
                 <div className="flex h-64 items-center justify-center bg-gradient-to-br from-[#dccfb4] to-[#c9b893]">
@@ -192,10 +194,10 @@ function Speaking() {
         </div>
         <div className="grid gap-6 md:grid-cols-2 md:gap-10">
           <div className="relative h-96 overflow-hidden md:h-[560px]">
-            <Image src="/images/speaking-stage.jpg" alt="Aaron Spivak on stage at a Founders Club event" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
+            <Image src="/images/speaking-stage.jpg" alt="Aaron Spivak on stage at a Founders Club event" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover object-[50%_12%]" />
           </div>
           <div className="relative h-96 overflow-hidden md:h-[560px]">
-            <Image src="/images/run.jpg" alt="Aaron Spivak leading a sunrise run" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
+            <Image src="/images/run.jpg" alt="Aaron Spivak leading a sunrise run" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover object-[50%_35%]" />
           </div>
         </div>
         <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
@@ -416,7 +418,7 @@ function NewsletterClose() {
             alt="The early days of Hush in a Toronto apartment"
             fill
             sizes="(min-width: 1024px) 560px, 100vw"
-            className="object-cover"
+            className="object-cover object-[50%_40%]"
           />
         </div>
         <p className="font-display text-[17px] italic text-cream/60">
