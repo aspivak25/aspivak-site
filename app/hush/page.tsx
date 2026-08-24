@@ -7,6 +7,40 @@ export const metadata: Metadata = {
     "From a Toronto basement to a $48 million exit — the full Hush story, on film.",
 };
 
+const chapters = [
+  {
+    label: "I. THE LAST $4,000",
+    body: "In 2018, Aaron Spivak and Lior Ohayon started Hush out of a Toronto apartment with weighted blankets, a borrowed couch to work from, and what was left of Aaron’s money — about $4,000. There was no funding, no warehouse, no plan B. Early orders were packed by hand and delivered the same way.",
+  },
+  {
+    label: "II. THE BLANKET CANADA COULDN’T IGNORE",
+    body: "The bet was simple: sleep was broken for a lot of people, and a heavy blanket fixed something no app could. When Hush put its Iced cooling blanket on Kickstarter, it raised over $1.5 million in 30 days — one of the most-funded Canadian campaigns ever. In 2019 the founders walked into Dragons’ Den and walked out with all six dragons bidding: the season’s Most Epic Pitch.",
+  },
+  {
+    label: "III. $0 TO $48 MILLION IN 48 MONTHS",
+    body: "Within 24 months, Hush was an eight-figure brand. It grew from a single product into a full sleep company — blankets, sheets, pillows, mattresses — sold direct and in retail across Canada and into the U.S. No shortcuts: relentless customer obsession, community before ads, and two founders who answered their own support emails long after they didn’t have to.",
+  },
+  {
+    label: "IV. THE EXIT",
+    body: "In October 2021, Sleep Country Canada — the country’s biggest name in sleep — acquired Hush. Forty-eight months after the apartment, the journey ended in a $48 million exit. Aaron has been honest about what happened next: the wire hit, and he felt nothing. The money was never the point. Building was.",
+  },
+  {
+    label: "V. WHY FOUNDERS CLUB EXISTS",
+    body: (
+      <>
+        That realization became the next company. Aaron poured the exit into the
+        people who make exits happen: founders. Today he invests eight figures a
+        year in founder-led brands and co-built Founders Club — a community of
+        entrepreneurs who push each other in business, health, and life. Because
+        if Hush proved anything,{" "}
+        <strong className="font-semibold text-cream">
+          it’s this: no founder wins alone.
+        </strong>
+      </>
+    ),
+  },
+];
+
 export default function HushPage() {
   return (
     <main className="flex min-h-screen flex-col bg-forest">
@@ -43,6 +77,17 @@ export default function HushPage() {
             allowFullScreen
             className="h-full w-full"
           />
+        </div>
+
+        <div className="mt-10 flex w-full max-w-2xl flex-col gap-14">
+          {chapters.map((c) => (
+            <div key={c.label} className="flex flex-col gap-4">
+              <p className="text-[11px] tracking-[0.24em] text-gold">{c.label}</p>
+              <p className="text-base font-light leading-loose text-cream/80">
+                {c.body}
+              </p>
+            </div>
+          ))}
         </div>
 
         <Link

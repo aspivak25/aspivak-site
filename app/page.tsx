@@ -102,11 +102,16 @@ function PressBar() {
 }
 
 function Story() {
+  const intro = [
+    "Hey — I’m Aaron. I build businesses, and I love the people who build them.",
+    "I’ve taken three companies from zero. The first I started at 18 — an organic cold-pressed juice company now at 12 locations across Toronto. The second was Hush: eight figures in 24 months, $1.5 million on Kickstarter in 30 days, the “Most Epic Pitch” of the season on Dragons’ Den, and a $48 million sale to Sleep Country in 2021. The third is where I spend my time now — Founders Club, a private, vetted community I’m building with Chris Meade for high-growth founders, because the chaos and loneliness of scaling a company shouldn’t be carried alone.",
+    "I’m based in Miami Beach. When I’m not building, I’m on a padel court, on a stage, or teaching the goal-setting workshop I’ve run for the past 13 years.",
+  ];
   const beats = [
     {
       label: "Age 18",
       title: "Revitasize",
-      text: "Co-founded a cold-pressed juice company and grew it to 10+ locations across Toronto — before most people pick a major.",
+      text: "Co-founded a cold-pressed juice company at 18 and grew it location by location — now at 12 across Toronto.",
       img: "/images/revitasize.jpg",
       objectPosition: "50% 20%",
       alt: "Aaron and the Revitasize team in the juice-kitchen days",
@@ -123,7 +128,7 @@ function Story() {
     {
       label: "Today",
       title: "Investor & Founders Club",
-      text: "Investing eight figures a year in companies like Othership, Coldture and GoodSport — and building Founders Club, the community where no founder wins alone.",
+      text: "Investing eight figures a year in companies like Othership, Coldture and GoodSport — and co-building Founders Club with Chris Meade: a private, vetted community for high-growth CPG, e-commerce and retail founders. No agencies, no investors, no fluff.",
       img: "/images/founders-club.jpg",
       objectPosition: "50% 30%",
       alt: "Aaron Spivak with members of Founders Club",
@@ -142,6 +147,18 @@ function Story() {
               No shortcuts. No secrets.{" "}
               <span className="italic text-gold-deep">Just the work.</span>
             </h2>
+            <div className="flex max-w-xl flex-col gap-7">
+              <div className="flex flex-col gap-5">
+                {intro.map((t) => (
+                  <p key={t} className="text-[15px] font-light leading-relaxed text-forest/75">
+                    {t}
+                  </p>
+                ))}
+              </div>
+              <p className="text-[11px] leading-relaxed tracking-[0.2em] text-gold-ink">
+                FORBES 30 UNDER 30 · EY ENTREPRENEUR OF THE YEAR FINALIST · OJHL — 5TH ALL-TIME IN SCORING
+              </p>
+            </div>
           </div>
           <div className="relative h-72 w-full shrink-0 overflow-hidden lg:h-[300px] lg:w-[380px]">
             <Image
