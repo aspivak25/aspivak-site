@@ -11,6 +11,15 @@ export default function IntroLoader() {
       setHidden(true);
       return;
     }
+    try {
+      if (sessionStorage.getItem("introSeen")) {
+        setHidden(true);
+        return;
+      }
+      sessionStorage.setItem("introSeen", "1");
+    } catch {
+      // sessionStorage unavailable (private mode, blocked cookies): play it
+    }
     const t1 = setTimeout(() => setFading(true), 2100);
     const t2 = setTimeout(() => setHidden(true), 2900);
     return () => {

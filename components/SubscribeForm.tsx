@@ -32,11 +32,11 @@ export default function SubscribeForm({
         setMessage("You're in. Check your inbox for a welcome note.");
       } else {
         setStatus("error");
-        setMessage(data.error ?? "Something went wrong — try again.");
+        setMessage(data.error ?? "Something went wrong, please try again.");
       }
     } catch {
       setStatus("error");
-      setMessage("Something went wrong — try again.");
+      setMessage("Something went wrong, please try again.");
     }
   }
 

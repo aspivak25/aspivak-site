@@ -14,7 +14,7 @@ export default function BookingForm() {
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
-    const subject = encodeURIComponent(`Speaking inquiry — ${eventInfo}`);
+    const subject = encodeURIComponent(`Speaking inquiry: ${eventInfo}`);
     const body = encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\n\nEvent & date:\n${eventInfo}\n\nAbout the event:\n${details}\n`,
     );

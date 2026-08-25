@@ -8,6 +8,8 @@ import SubscribeForm from "@/components/SubscribeForm";
 const eyebrow = "text-xs tracking-[0.28em]";
 const navLink =
   "text-xs tracking-[0.22em] text-cream/75 transition hover:text-gold";
+const footerLink =
+  "text-[11px] tracking-[0.2em] text-cream/50 transition hover:text-gold";
 const beatCta =
   "self-start border border-forest/40 px-[18px] py-2.5 text-xs tracking-[0.16em] text-forest transition hover:bg-forest hover:text-cream";
 
@@ -28,6 +30,7 @@ function Nav() {
       </a>
       <nav className="hidden items-center gap-9 md:flex">
         <a href="#story" className={navLink}>STORY</a>
+        <Link href="/hush" className={navLink}>THE FILM</Link>
         <a href="#speaking" className={navLink}>SPEAKING</a>
         <a href="#workshop" className={navLink}>WORKSHOP</a>
         <a href="#coaching" className={navLink}>COACHING</a>
@@ -37,7 +40,8 @@ function Nav() {
         href="#newsletter"
         className="bg-gold px-5 py-3 text-xs font-semibold tracking-[0.18em] text-forest transition hover:bg-gold-deep md:px-7 md:py-3.5"
       >
-        JOIN THE NEWSLETTER
+        <span className="md:hidden">NEWSLETTER</span>
+        <span className="hidden md:inline">JOIN THE NEWSLETTER</span>
       </a>
     </header>
   );
@@ -69,12 +73,22 @@ function Hero() {
         </h1>
         <p className="max-w-lg text-lg font-light leading-relaxed text-cream/80">
           I built Hush from a Toronto basement to a $48M exit. Now I share
-          everything I learned — every week, founder to founder.
+          everything I learned, every week, founder to founder.
         </p>
         <SubscribeForm compact />
         <p className="text-[13px] text-cream/50">
-          Weekly insights on starting, scaling, and succeeding. Free, forever.
+          The Founder to Founder letter. Weekly insights on starting, scaling,
+          and succeeding. Free, forever.
         </p>
+        <Link
+          href="/hush"
+          className="flex items-center gap-2.5 text-xs tracking-[0.18em] text-gold transition hover:text-cream"
+        >
+          <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden fill="currentColor">
+            <path d="M2 1.2 10.4 6 2 10.8z" />
+          </svg>
+          WATCH THE FILM: THE STORY OF HUSH
+        </Link>
       </div>
       <div className="relative h-80 lg:hidden">
         <Image
@@ -107,14 +121,14 @@ function PressBar() {
 function Story() {
   const intro = [
     "I build businesses, and I love the people who build them.",
-    "I’ve taken three companies from zero. The first I started at 18 — an organic cold-pressed juice company now at 12 locations across Toronto. The second was Hush: eight figures in 24 months, $1.5 million on Kickstarter in 30 days, the “Most Epic Pitch” of the season on Dragons’ Den, and a $48 million sale to Sleep Country in 2021. The third is where I spend my time now — Founders Club, a private, vetted community I’m building with Chris Meade for high-growth founders, because the chaos and loneliness of scaling a company shouldn’t be carried alone.",
+    "I’ve taken three companies from zero. The first I started at 18, an organic cold-pressed juice company now at 12 locations across Toronto. The second was Hush: eight figures in 24 months, $1.5 million on Kickstarter in 30 days, the “Most Epic Pitch” of the season on Dragons’ Den, and a $48 million sale to Sleep Country in 2021. The third is where I spend my time now: Founders Club, a private, vetted community I’m building with Chris Meade for high-growth founders, because the chaos and loneliness of scaling a company shouldn’t be carried alone.",
     "I’m based in Miami Beach. When I’m not building, I’m on a padel court, on a stage, or teaching the goal-setting workshop I’ve run for the past 13 years.",
   ];
   const beats = [
     {
       label: "Age 18",
       title: "Revitasize",
-      text: "Co-founded a cold-pressed juice company at 18 and grew it location by location — now at 12 across Toronto.",
+      text: "Co-founded a cold-pressed juice company at 18 and grew it location by location. Now at 12 across Toronto.",
       img: "/images/revitasize.jpg",
       objectPosition: "50% 20%",
       alt: "Aaron and the Revitasize team in the juice-kitchen days",
@@ -122,7 +136,7 @@ function Story() {
     {
       label: "The exit",
       title: "Hush",
-      text: "Scaled Hush from $0 to $48 million in 48 months and sold it — a Canadian DTC story told on Dragons’ Den and beyond.",
+      text: "Scaled Hush from $0 to $48 million in 48 months and sold it, a Canadian DTC story told on Dragons’ Den and beyond.",
       img: "/images/hush.jpg",
       objectPosition: "50% 18%",
       alt: "Aaron Spivak in Hush gear at a launch event",
@@ -236,7 +250,7 @@ function Speaking() {
     },
     {
       title: "$0 to $48M: The Unsexy Truth",
-      text: "What actually scaled Hush — and what was a waste of four years.",
+      text: "What actually scaled Hush, and what was a waste of four years.",
     },
     {
       title: "Break the Belief",
@@ -328,7 +342,7 @@ function Workshop() {
               <span className="italic">holding you back.</span>
             </h2>
             <p className="max-w-xl text-[17px] leading-relaxed text-forest/85">
-              The workshop I&rsquo;ve taught for 13 years — a working session
+              The workshop I&rsquo;ve taught for 13 years. A working session
               where you name the goal, find the belief in the way, and break
               it. Not theory. The same process I used at every stage of Hush.
             </p>
@@ -357,7 +371,7 @@ function Workshop() {
             href="#newsletter"
             className="shrink-0 bg-forest px-8 py-4.5 text-[13px] font-semibold tracking-[0.14em] text-cream transition hover:bg-forest-deep"
           >
-            JOIN THE NEXT WORKSHOP
+            GET NOTIFIED ABOUT THE NEXT WORKSHOP
           </a>
         </div>
       </div>
@@ -379,7 +393,7 @@ function Coaching() {
       initials: "LS",
     },
     {
-      q: "Aaron’s coaching and the Founders Club community expanded my business — and my entire network.",
+      q: "Aaron’s coaching and the Founders Club community expanded my business, and my entire network.",
       name: "Daniel Mazour",
       co: "Coldture",
       initials: "DM",
@@ -480,7 +494,7 @@ function Podcast() {
               Founder2Founder
             </p>
             <p className="relative max-w-xl text-sm leading-relaxed text-cream/75">
-              Raw and unfiltered — Aaron pulls back the curtain on what it
+              Raw and unfiltered. Aaron pulls back the curtain on what it
               really takes to build something from the ground up.
             </p>
             <div className="relative flex flex-col">
@@ -576,7 +590,7 @@ function NewsletterClose() {
         </p>
       </div>
       <div className="flex flex-col gap-7">
-        <p className={`${eyebrow} text-gold`}>FOUNDER TO FOUNDER — THE WEEKLY LETTER</p>
+        <p className={`${eyebrow} text-gold`}>THE FOUNDER TO FOUNDER LETTER</p>
         <h2 className="font-display text-4xl font-medium leading-[1.1] text-cream [text-wrap:balance] md:text-6xl">
           It started in this room. Subscribe and build a future{" "}
           <span className="italic text-gold">you&rsquo;re proud of.</span>
@@ -597,17 +611,21 @@ function Footer() {
     { label: "LINKEDIN", href: "https://www.linkedin.com" },
     { label: "FOUNDERS CLUB", href: "https://foundersclubofficial.com" },
   ];
+  const filmLink = { label: "THE FILM", href: "/hush" };
   return (
     <footer className="flex flex-col items-center justify-between gap-6 bg-ink px-6 py-8 md:flex-row md:px-16">
       <p className="font-display text-lg tracking-wide text-cream/70">Aaron Spivak</p>
       <nav className="flex flex-wrap justify-center gap-7">
+        <Link href={filmLink.href} className={footerLink}>
+          {filmLink.label}
+        </Link>
         {links.map((l) => (
           <a
             key={l.label}
             href={l.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[11px] tracking-[0.2em] text-cream/50 transition hover:text-gold"
+            className={footerLink}
           >
             {l.label}
           </a>

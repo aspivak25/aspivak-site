@@ -23,7 +23,7 @@ export async function POST(req: Request) {
 
   if (!apiKey || !pubId) {
     return NextResponse.json(
-      { error: "Newsletter signup isn't configured yet — check back soon." },
+      { error: "Newsletter signup isn't configured yet. Check back soon." },
       { status: 503 },
     );
   }
@@ -51,7 +51,7 @@ export async function POST(req: Request) {
 
   if (!res.ok) {
     return NextResponse.json(
-      { error: "Couldn't subscribe right now — please try again." },
+      { error: "Couldn't subscribe right now. Please try again." },
       { status: 502 },
     );
   }
