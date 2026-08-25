@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import BookingForm from "@/components/BookingForm";
-import CoachingInquiry from "@/components/CoachingInquiry";
 import IntroLoader from "@/components/IntroLoader";
 import SubscribeForm from "@/components/SubscribeForm";
 
@@ -389,28 +388,9 @@ function Workshop() {
 }
 
 function Coaching() {
-  const stats = [
-    { v: "143+", l: "FOUNDERS COACHED" },
-    { v: "3×", l: "IMPROVED RESULTS" },
-    { v: "85%", l: "BETTER TIME MANAGEMENT" },
-  ];
-  const quotes = [
-    {
-      q: "Working with Aaron took us from low six figures to targeting nine. He sees around corners.",
-      name: "Landon Schiller",
-      co: "Kala Red Light",
-      initials: "LS",
-    },
-    {
-      q: "Aaron’s coaching and the Founders Club community expanded my business, and my entire network.",
-      name: "Daniel Mazour",
-      co: "Coldture",
-      initials: "DM",
-    },
-  ];
   return (
-    <section id="coaching" className="bg-cream px-6 py-20 text-forest md:px-16 md:py-28">
-      <div className="flex flex-col gap-14">
+    <section id="coaching" className="bg-cream px-6 py-24 text-forest md:px-16">
+      <div className="flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-center">
         <div className="flex max-w-2xl flex-col gap-5">
           <div className="flex items-center gap-3.5">
             <Rule dark />
@@ -420,41 +400,82 @@ function Coaching() {
             The mentor I wish I had at{" "}
             <span className="italic text-gold-deep">$0.</span>
           </h2>
+          <p className="text-base font-light leading-relaxed text-forest/75">
+            A handful of founders a year, working directly with Aaron on the
+            exact problems in front of them. Serious inquiries only.
+          </p>
         </div>
-        <div className="grid gap-10 sm:grid-cols-3">
-          {stats.map((s) => (
-            <div key={s.l} className="border-t border-forest/20 pt-6">
-              <p className="font-display text-6xl text-gold-deep tabular-nums">{s.v}</p>
-              <p className="mt-2 text-[13px] tracking-[0.14em] text-forest/70">{s.l}</p>
+        <div className="flex shrink-0 flex-col gap-3 lg:items-end">
+          <a
+            href="mailto:aaron@aspivak.com?subject=Coaching%20inquiry"
+            className="self-start bg-forest px-7 py-4 text-[13px] font-semibold tracking-[0.14em] text-cream transition hover:bg-forest-deep lg:self-auto"
+          >
+            ENQUIRE ABOUT COACHING
+          </a>
+          <p className="text-[13px] text-forest/55">
+            Coaching starts at $5,000 per hour.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Instagram() {
+  // Placeholder tiles: swap these for real Instagram post images when available.
+  const tiles = [
+    { src: "/images/speaking-stage.jpg", alt: "Aaron Spivak on stage" },
+    { src: "/images/run.jpg", alt: "Aaron Spivak leading a sunrise run" },
+    { src: "/images/founders-club.jpg", alt: "Aaron Spivak with Founders Club members" },
+    { src: "/images/hush.jpg", alt: "Aaron Spivak in Hush gear" },
+    { src: "/images/revitasize.jpg", alt: "Aaron Spivak in the Revitasize juice-kitchen days" },
+    { src: "/images/podcast-couch.jpg", alt: "Aaron Spivak recording the podcast" },
+  ];
+  const handle = "https://www.instagram.com/spivak";
+  return (
+    <section
+      id="instagram"
+      className="border-t border-forest/15 bg-cream px-6 py-20 text-forest md:px-16 md:py-24"
+    >
+      <div className="flex flex-col gap-12">
+        <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-end">
+          <div className="flex flex-col gap-5">
+            <div className="flex items-center gap-3.5">
+              <Rule dark />
+              <p className={`${eyebrow} font-medium text-gold-ink`}>OFF THE RECORD</p>
             </div>
-          ))}
+            <h2 className="font-display text-4xl font-medium leading-[1.1] [text-wrap:balance] md:text-[56px]">
+              Day to day, on{" "}
+              <span className="italic text-gold-deep">@spivak.</span>
+            </h2>
+          </div>
+          <a
+            href={handle}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 border border-forest/40 px-[18px] py-2.5 text-xs tracking-[0.16em] text-forest transition hover:bg-forest hover:text-cream"
+          >
+            FOLLOW ON INSTAGRAM
+          </a>
         </div>
-        <div className="grid gap-10 md:grid-cols-2">
-          {quotes.map((t) => (
-            <figure key={t.name} className="flex flex-col gap-6 bg-white p-8 shadow-[0_1px_0_rgba(21,38,29,0.08)] md:p-11">
-              <p className="font-display text-4xl leading-[0.5] text-gold-deep" aria-hidden>
-                &ldquo;
-              </p>
-              <blockquote className="font-display text-2xl italic leading-snug">
-                {t.q}
-              </blockquote>
-              <figcaption className="flex items-center gap-3.5">
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-forest text-sm text-gold">
-                  {t.initials}
-                </span>
-                <span>
-                  <span className="block text-sm font-semibold">{t.name}</span>
-                  <span className="block text-[13px] text-forest/60">{t.co}</span>
-                </span>
-              </figcaption>
-            </figure>
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+          {tiles.map((t) => (
+            <a
+              key={t.src}
+              href={handle}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative aspect-square overflow-hidden"
+            >
+              <Image
+                src={t.src}
+                alt={t.alt}
+                fill
+                sizes="(min-width: 1024px) 16vw, (min-width: 640px) 33vw, 50vw"
+                className="object-cover transition duration-500 group-hover:scale-[1.04]"
+              />
+            </a>
           ))}
-        </div>
-        <div className="flex flex-col gap-7 bg-white p-8 shadow-[0_1px_0_rgba(21,38,29,0.08)] md:p-11">
-          <h3 className="font-display text-3xl font-medium md:text-4xl">
-            Work with Aaron 1:1.
-          </h3>
-          <CoachingInquiry />
         </div>
       </div>
     </section>
@@ -656,6 +677,7 @@ export default function Page() {
       <Speaking />
       <Workshop />
       <Coaching />
+      <Instagram />
       <Podcast />
       <NewsletterClose />
       <Footer />
