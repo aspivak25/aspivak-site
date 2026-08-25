@@ -1,12 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import BookingForm from "@/components/BookingForm";
+import CoachingInquiry from "@/components/CoachingInquiry";
 import IntroLoader from "@/components/IntroLoader";
 import SubscribeForm from "@/components/SubscribeForm";
 
 const eyebrow = "text-xs tracking-[0.28em]";
 const navLink =
   "text-xs tracking-[0.22em] text-cream/75 transition hover:text-gold";
+const beatCta =
+  "self-start border border-forest/40 px-[18px] py-2.5 text-xs tracking-[0.16em] text-forest transition hover:bg-forest hover:text-cream";
 
 function Rule({ dark = false }: { dark?: boolean }) {
   return (
@@ -103,7 +106,7 @@ function PressBar() {
 
 function Story() {
   const intro = [
-    "Hey — I’m Aaron. I build businesses, and I love the people who build them.",
+    "I build businesses, and I love the people who build them.",
     "I’ve taken three companies from zero. The first I started at 18 — an organic cold-pressed juice company now at 12 locations across Toronto. The second was Hush: eight figures in 24 months, $1.5 million on Kickstarter in 30 days, the “Most Epic Pitch” of the season on Dragons’ Den, and a $48 million sale to Sleep Country in 2021. The third is where I spend my time now — Founders Club, a private, vetted community I’m building with Chris Meade for high-growth founders, because the chaos and loneliness of scaling a company shouldn’t be carried alone.",
     "I’m based in Miami Beach. When I’m not building, I’m on a padel court, on a stage, or teaching the goal-setting workshop I’ve run for the past 13 years.",
   ];
@@ -127,11 +130,16 @@ function Story() {
     },
     {
       label: "Today",
-      title: "Investor & Founders Club",
-      text: "Investing eight figures a year in companies like Othership, Coldture and GoodSport — and co-building Founders Club with Chris Meade: a private, vetted community for high-growth CPG, e-commerce and retail founders. No agencies, no investors, no fluff.",
+      title: "Founders Club",
+      text: "Co-building Founders Club with Chris Meade: a private, vetted community for high-growth CPG, e-commerce and retail founders. No agencies, no investors, no fluff.",
       img: "/images/founders-club.jpg",
       objectPosition: "50% 30%",
       alt: "Aaron Spivak with members of Founders Club",
+      cta: {
+        label: "APPLY TO JOIN THE FOUNDERS CLUB",
+        href: "https://www.foundersclubofficial.com/become-a-member",
+        external: true,
+      },
     },
   ];
   return (
@@ -156,7 +164,7 @@ function Story() {
                 ))}
               </div>
               <p className="text-[11px] leading-relaxed tracking-[0.2em] text-gold-ink">
-                FORBES 30 UNDER 30 · EY ENTREPRENEUR OF THE YEAR FINALIST · OJHL — 5TH ALL-TIME IN SCORING
+                FORBES 30 UNDER 30 · EY ENTREPRENEUR OF THE YEAR FINALIST · #172 ON THE INC. 5000
               </p>
             </div>
           </div>
@@ -185,14 +193,21 @@ function Story() {
               <p className="font-display text-3xl italic text-gold-deep">{b.label}</p>
               <p className="text-[15px] font-semibold tracking-wide">{b.title}</p>
               <p className="text-[15px] font-light leading-relaxed text-forest/75">{b.text}</p>
-              {b.cta && (
-                <Link
-                  href={b.cta.href}
-                  className="self-start border border-forest/40 px-[18px] py-2.5 text-xs tracking-[0.16em] text-forest transition hover:bg-forest hover:text-cream"
-                >
-                  {b.cta.label}
-                </Link>
-              )}
+              {b.cta &&
+                (b.cta.external ? (
+                  <a
+                    href={b.cta.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={beatCta}
+                  >
+                    {b.cta.label}
+                  </a>
+                ) : (
+                  <Link href={b.cta.href} className={beatCta}>
+                    {b.cta.label}
+                  </Link>
+                ))}
             </div>
           ))}
         </div>
@@ -202,6 +217,18 @@ function Story() {
 }
 
 function Speaking() {
+  const testimonials = [
+    {
+      quote:
+        "I’ve done this workshop for 3 years now and it’s changed my life, but also how I approach my years.",
+      name: "Chris Meade, Co-founder of Founders Club",
+    },
+    {
+      quote:
+        "This is the best workshop I have ever done. I wish I found out about this years ago.",
+      name: "Mendel Felig",
+    },
+  ];
   const keynotes = [
     {
       title: "No Founder Wins Alone",
@@ -241,12 +268,31 @@ function Speaking() {
           </div>
           <div className="flex flex-col gap-7 md:justify-center">
             <p className={`${eyebrow} text-gold`}>SIGNATURE KEYNOTES</p>
+            <p className="text-[15px] font-light leading-relaxed text-cream/70">
+              These are not motivational talks. Each keynote is built from three
+              companies, a $48 million exit, and 13 years of teaching founders
+              how to get out of their own way. Audiences leave with tools they
+              can use the next morning, told through stories they will not
+              forget.
+            </p>
             <div className="flex flex-col">
               {keynotes.map((k) => (
                 <div key={k.title} className="flex flex-col gap-2 border-t border-cream/15 py-7">
                   <p className="font-display text-2xl text-cream md:text-3xl">{k.title}</p>
                   <p className="text-sm leading-relaxed text-cream/60">{k.text}</p>
                 </div>
+              ))}
+            </div>
+            <div className="flex flex-col">
+              {testimonials.map((t) => (
+                <figure key={t.name} className="flex flex-col gap-2.5 border-t border-cream/15 py-6">
+                  <blockquote className="font-display text-lg italic leading-snug text-cream/90">
+                    &ldquo;{t.quote}&rdquo;
+                  </blockquote>
+                  <figcaption className="text-xs tracking-[0.14em] text-cream/50">
+                    {t.name}
+                  </figcaption>
+                </figure>
               ))}
             </div>
           </div>
@@ -380,6 +426,12 @@ function Coaching() {
               </figcaption>
             </figure>
           ))}
+        </div>
+        <div className="flex flex-col gap-7 bg-white p-8 shadow-[0_1px_0_rgba(21,38,29,0.08)] md:p-11">
+          <h3 className="font-display text-3xl font-medium md:text-4xl">
+            Work with Aaron 1:1.
+          </h3>
+          <CoachingInquiry />
         </div>
       </div>
     </section>
