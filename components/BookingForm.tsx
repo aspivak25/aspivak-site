@@ -72,7 +72,7 @@ export default function BookingForm() {
       <button
         type="submit"
         disabled={!agreed}
-        className="mt-1 self-start bg-gold px-7 py-4 text-[13px] font-semibold tracking-[0.14em] text-forest transition hover:bg-gold-deep disabled:cursor-not-allowed disabled:opacity-40"
+        className="mt-1 flex w-full items-center justify-center self-start bg-gold px-7 py-4 text-[13px] font-semibold tracking-[0.14em] text-forest transition hover:bg-gold-deep disabled:cursor-not-allowed disabled:opacity-40 sm:w-auto"
       >
         REQUEST AARON
       </button>

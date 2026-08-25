@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import BookingForm from "@/components/BookingForm";
 import InstagramFeed from "@/components/InstagramFeed";
+import MobileNav from "@/components/MobileNav";
 import IntroLoader from "@/components/IntroLoader";
 import SubscribeForm from "@/components/SubscribeForm";
 
@@ -24,11 +25,11 @@ function Rule({ dark = false }: { dark?: boolean }) {
 
 function Nav() {
   return (
-    <header className="flex items-center justify-between gap-4 border-b border-cream/10 px-6 py-6 md:px-16">
+    <header className="flex items-center justify-between gap-4 border-b border-cream/10 px-6 py-6 md:px-10 xl:px-16">
       <a href="#top" className="font-display text-2xl tracking-wide text-cream">
         Aaron Spivak
       </a>
-      <nav className="hidden items-center gap-9 md:flex">
+      <nav className="hidden items-center gap-6 lg:flex xl:gap-9">
         <a href="#story" className={navLink}>STORY</a>
         <Link href="/hush" className={navLink}>THE FILM</Link>
         <a href="#speaking" className={navLink}>SPEAKING</a>
@@ -38,11 +39,12 @@ function Nav() {
       </nav>
       <a
         href="#newsletter"
-        className="bg-gold px-5 py-3 text-xs font-semibold tracking-[0.18em] text-forest transition hover:bg-gold-deep md:px-7 md:py-3.5"
+        className="bg-gold px-5 py-3 text-xs font-semibold tracking-[0.18em] text-forest transition hover:bg-gold-deep lg:px-7 lg:py-3.5"
       >
-        <span className="md:hidden">NEWSLETTER</span>
-        <span className="hidden md:inline">JOIN THE NEWSLETTER</span>
+        <span className="lg:hidden">NEWSLETTER</span>
+        <span className="hidden lg:inline">JOIN THE NEWSLETTER</span>
       </a>
+      <MobileNav />
     </header>
   );
 }
@@ -51,23 +53,27 @@ function Hero() {
   return (
     <section className="relative overflow-hidden" id="top">
       <div className="absolute inset-0 bg-gradient-to-br from-[#1e3428] via-ink to-ink" />
-      <div className="absolute inset-y-0 right-0 hidden w-[44%] lg:block">
+      <div className="absolute inset-0 overflow-hidden lg:left-auto lg:w-[44%]">
+        {/* Below lg the source is portrait in a much narrower frame, so cover
+            scales to height and leaves no vertical crop to work with. The zoom
+            creates that headroom and lifts Aaron above the headline. */}
         <Image
           src="/images/hero-stage.jpg"
           alt="Aaron Spivak speaking on stage"
           fill
           priority
-          sizes="44vw"
-          className="object-cover"
+          sizes="(min-width: 1024px) 44vw, 100vw"
+          className="origin-[35%_85%] scale-[1.6] object-cover object-[35%_50%] lg:origin-center lg:scale-100 lg:object-center"
         />
       </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/80 to-forest/30 lg:hidden" />
       <div className="absolute inset-0 hidden bg-gradient-to-r from-forest from-[28%] via-forest/85 via-[46%] to-transparent to-[75%] lg:block" />
-      <div className="relative flex max-w-3xl flex-col gap-7 px-6 pb-24 pt-20 md:px-16 lg:pb-32 lg:pt-24">
+      <div className="relative flex min-h-[92svh] max-w-3xl flex-col justify-end gap-6 px-6 pb-14 pt-20 md:px-16 lg:min-h-0 lg:justify-start lg:gap-7 lg:pb-32 lg:pt-24">
         <div className="flex items-center gap-3.5">
           <Rule />
           <p className={`${eyebrow} text-gold`}>FOUNDER · SPEAKER · INVESTOR</p>
         </div>
-        <h1 className="font-display text-5xl font-medium leading-[1.05] text-cream [text-wrap:balance] md:text-7xl lg:text-[84px]">
+        <h1 className="font-display text-[44px] font-medium leading-[1.06] text-cream [text-wrap:balance] md:text-7xl md:leading-[1.05] lg:text-[84px]">
           $0 to $48 million{" "}
           <span className="italic text-gold">in 48 months.</span>
         </h1>
@@ -89,16 +95,6 @@ function Hero() {
           </svg>
           WATCH THE FILM: THE STORY OF HUSH
         </Link>
-      </div>
-      <div className="relative h-80 lg:hidden">
-        <Image
-          src="/images/hero-stage.jpg"
-          alt="Aaron Spivak speaking on stage"
-          fill
-          sizes="100vw"
-          className="object-cover object-[50%_15%]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-forest via-transparent to-transparent" />
       </div>
     </section>
   );
@@ -158,7 +154,7 @@ function Story() {
     },
   ];
   return (
-    <section id="story" className="bg-cream px-6 py-20 text-forest md:px-16 md:py-28">
+    <section id="story" className="bg-cream px-6 py-16 text-forest md:px-16 md:py-28">
       <div className="flex flex-col gap-16">
         <div className="flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-stretch">
           <div className="flex max-w-2xl flex-col gap-5">
@@ -171,7 +167,7 @@ function Story() {
               <span className="italic text-gold-deep">Just the work.</span>
             </h2>
             <div className="flex max-w-xl flex-col gap-7">
-              <div className="flex flex-col gap-5">
+              <div className="flex flex-col gap-4 md:gap-5">
                 {intro.map((t) => (
                   <p key={t} className="text-[15px] font-light leading-relaxed text-forest/75">
                     {t}
@@ -267,7 +263,7 @@ function Speaking() {
     },
   ];
   return (
-    <section id="speaking" className="bg-forest px-6 py-20 md:px-16 md:py-28">
+    <section id="speaking" className="bg-forest px-6 py-16 md:px-16 md:py-28">
       <div className="flex flex-col gap-14">
         <div className="flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-end">
           <div className="flex max-w-2xl flex-col gap-5">
@@ -338,7 +334,7 @@ function Workshop() {
     { n: "03. Break it", d: "Replace it with a plan you can execute this quarter." },
   ];
   return (
-    <section id="workshop" className="bg-gold px-6 py-20 text-forest md:px-16 md:py-28">
+    <section id="workshop" className="bg-gold px-6 py-16 text-forest md:px-16 md:py-28">
       <div className="flex flex-col gap-14">
         <div className="flex flex-col items-start justify-between gap-12 lg:flex-row lg:items-end">
           <div className="flex max-w-2xl flex-col gap-5">
@@ -390,7 +386,7 @@ function Workshop() {
 
 function Coaching() {
   return (
-    <section id="coaching" className="bg-cream px-6 py-24 text-forest md:px-16">
+    <section id="coaching" className="bg-cream px-6 py-16 text-forest md:px-16 md:py-24">
       <div className="flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-center">
         <div className="flex max-w-2xl flex-col gap-5">
           <div className="flex items-center gap-3.5">
@@ -409,7 +405,7 @@ function Coaching() {
         <div className="flex shrink-0 flex-col gap-3 lg:items-end">
           <a
             href="mailto:aaron@aspivak.com?subject=Coaching%20inquiry"
-            className="self-start bg-forest px-7 py-4 text-[13px] font-semibold tracking-[0.14em] text-cream transition hover:bg-forest-deep lg:self-auto"
+            className="w-full self-start bg-forest px-7 py-4 text-center text-[13px] font-semibold tracking-[0.14em] text-cream transition hover:bg-forest-deep sm:w-auto lg:self-auto"
           >
             ENQUIRE ABOUT COACHING
           </a>
@@ -427,7 +423,7 @@ function Instagram() {
   return (
     <section
       id="instagram"
-      className="border-t border-forest/15 bg-cream px-6 py-20 text-forest md:px-16 md:py-24"
+      className="border-t border-forest/15 bg-cream px-6 py-16 text-forest md:px-16 md:py-24"
     >
       <div className="flex flex-col gap-12">
         <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-end">
@@ -445,7 +441,7 @@ function Instagram() {
             href={handle}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 border border-forest/40 px-[18px] py-2.5 text-xs tracking-[0.16em] text-forest transition hover:bg-forest hover:text-cream"
+            className="w-full shrink-0 border border-forest/40 px-[18px] py-2.5 text-center text-xs tracking-[0.16em] text-forest transition hover:bg-forest hover:text-cream sm:w-auto"
           >
             FOLLOW ON INSTAGRAM
           </a>
@@ -475,7 +471,7 @@ function Podcast() {
     { label: "YOUTUBE", href: "https://www.youtube.com/watch?v=JZYz5FdY1wk" },
   ];
   return (
-    <section id="podcast" className="bg-forest px-6 py-20 md:px-16 md:py-28">
+    <section id="podcast" className="bg-forest px-6 py-16 md:px-16 md:py-28">
       <div className="flex flex-col gap-12">
         <div className="flex items-center gap-3.5">
           <Rule />

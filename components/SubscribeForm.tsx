@@ -60,7 +60,7 @@ export default function SubscribeForm({
           onChange={(e) => setName(e.target.value)}
           placeholder="First name"
           autoComplete="given-name"
-          className="w-40 border border-cream/30 bg-transparent px-5 py-4 text-sm text-cream placeholder:text-cream/50 focus:border-gold focus:outline-none"
+          className="w-full border border-cream/30 sm:w-40 bg-transparent px-5 py-4 text-sm text-cream placeholder:text-cream/50 focus:border-gold focus:outline-none"
         />
       )}
       <input
@@ -70,12 +70,12 @@ export default function SubscribeForm({
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Your email address"
         autoComplete="email"
-        className="w-60 border border-cream/30 bg-transparent px-5 py-4 text-sm text-cream placeholder:text-cream/50 focus:border-gold focus:outline-none"
+        className="w-full border border-cream/30 sm:w-60 bg-transparent px-5 py-4 text-sm text-cream placeholder:text-cream/50 focus:border-gold focus:outline-none"
       />
       <button
         type="submit"
         disabled={status === "loading"}
-        className="bg-gold px-7 py-4 text-[13px] font-semibold tracking-[0.14em] text-forest transition hover:bg-gold-deep disabled:opacity-60"
+        className="flex w-full items-center justify-center bg-gold px-7 py-4 text-[13px] font-semibold tracking-[0.14em] text-forest transition hover:bg-gold-deep disabled:opacity-60 sm:w-auto"
       >
         {status === "loading" ? "SUBSCRIBING…" : "SUBSCRIBE FREE"}
       </button>
