@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import BookingForm from "@/components/BookingForm";
+import InstagramFeed from "@/components/InstagramFeed";
 import IntroLoader from "@/components/IntroLoader";
 import SubscribeForm from "@/components/SubscribeForm";
 
@@ -422,15 +423,6 @@ function Coaching() {
 }
 
 function Instagram() {
-  // Placeholder tiles: swap these for real Instagram post images when available.
-  const tiles = [
-    { src: "/images/speaking-stage.jpg", alt: "Aaron Spivak on stage" },
-    { src: "/images/run.jpg", alt: "Aaron Spivak leading a sunrise run" },
-    { src: "/images/founders-club.jpg", alt: "Aaron Spivak with Founders Club members" },
-    { src: "/images/hush.jpg", alt: "Aaron Spivak in Hush gear" },
-    { src: "/images/revitasize.jpg", alt: "Aaron Spivak in the Revitasize juice-kitchen days" },
-    { src: "/images/podcast-couch.jpg", alt: "Aaron Spivak recording the podcast" },
-  ];
   const handle = "https://www.instagram.com/spivak";
   return (
     <section
@@ -458,25 +450,7 @@ function Instagram() {
             FOLLOW ON INSTAGRAM
           </a>
         </div>
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-          {tiles.map((t) => (
-            <a
-              key={t.src}
-              href={handle}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative aspect-square overflow-hidden"
-            >
-              <Image
-                src={t.src}
-                alt={t.alt}
-                fill
-                sizes="(min-width: 1024px) 16vw, (min-width: 640px) 33vw, 50vw"
-                className="object-cover transition duration-500 group-hover:scale-[1.04]"
-              />
-            </a>
-          ))}
-        </div>
+        <InstagramFeed />
       </div>
     </section>
   );
