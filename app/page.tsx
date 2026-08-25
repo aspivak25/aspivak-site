@@ -160,7 +160,7 @@ function Story() {
   return (
     <section id="story" className="bg-cream px-6 py-20 text-forest md:px-16 md:py-28">
       <div className="flex flex-col gap-16">
-        <div className="flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-end">
+        <div className="flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-stretch">
           <div className="flex max-w-2xl flex-col gap-5">
             <div className="flex items-center gap-3.5">
               <Rule dark />
@@ -183,13 +183,13 @@ function Story() {
               </p>
             </div>
           </div>
-          <div className="relative h-72 w-full shrink-0 overflow-hidden lg:h-[300px] lg:w-[380px]">
+          <div className="relative h-72 w-full shrink-0 overflow-hidden lg:h-auto lg:w-[440px] lg:self-stretch">
             <Image
               src="/images/portrait.jpg"
               alt="Portrait of Aaron Spivak"
               fill
-              sizes="(min-width: 1024px) 380px, 100vw"
-              className="object-cover object-[50%_25%]"
+              sizes="(min-width: 1024px) 440px, 100vw"
+              className="object-cover object-[50%_20%]"
             />
           </div>
         </div>
