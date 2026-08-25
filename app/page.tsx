@@ -128,10 +128,12 @@ function Story() {
     {
       label: "Age 18",
       title: "Revitasize",
-      text: "Co-founded a cold-pressed juice company at 18 and grew it location by location. Now at 12 across Toronto.",
+      text: "Co-founded a cold-pressed juice company at 18 and grew it location by location across the GTA. Still pouring today.",
       img: "/images/revitasize.jpg",
       objectPosition: "50% 20%",
       alt: "Aaron and the Revitasize team in the juice-kitchen days",
+      note: "In Toronto? Go taste chapter one.",
+      cta: { label: "CHECK OUT REVITASIZE", href: "https://revitasize.ca" },
     },
     {
       label: "The exit",
@@ -152,7 +154,6 @@ function Story() {
       cta: {
         label: "APPLY TO JOIN THE FOUNDERS CLUB",
         href: "https://www.foundersclubofficial.com/become-a-member",
-        external: true,
       },
     },
   ];
@@ -194,7 +195,7 @@ function Story() {
         </div>
         <div className="grid gap-10 md:grid-cols-3">
           {beats.map((b) => (
-            <div key={b.title} className="flex flex-col gap-4 border-t border-forest/20 pt-7">
+            <div key={b.title} className="flex h-full flex-col gap-4 border-t border-forest/20 pt-7">
               {b.img ? (
                 <div className="relative h-64 overflow-hidden">
                   <Image src={b.img} alt={b.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" style={{ objectPosition: b.objectPosition }} />
@@ -207,21 +208,29 @@ function Story() {
               <p className="font-display text-3xl italic text-gold-deep">{b.label}</p>
               <p className="text-[15px] font-semibold tracking-wide">{b.title}</p>
               <p className="text-[15px] font-light leading-relaxed text-forest/75">{b.text}</p>
-              {b.cta &&
-                (b.cta.external ? (
-                  <a
-                    href={b.cta.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={beatCta}
-                  >
-                    {b.cta.label}
-                  </a>
-                ) : (
-                  <Link href={b.cta.href} className={beatCta}>
-                    {b.cta.label}
-                  </Link>
-                ))}
+              {b.cta && (
+                <div className="mt-auto flex flex-col items-start gap-3 pt-4">
+                  {b.note && (
+                    <p className="font-display text-[17px] italic text-gold-deep">
+                      {b.note}
+                    </p>
+                  )}
+                  {b.cta.href.startsWith("http") ? (
+                    <a
+                      href={b.cta.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={beatCta}
+                    >
+                      {b.cta.label}
+                    </a>
+                  ) : (
+                    <Link href={b.cta.href} className={beatCta}>
+                      {b.cta.label}
+                    </Link>
+                  )}
+                </div>
+              )}
             </div>
           ))}
         </div>
