@@ -356,14 +356,14 @@ function Workshop() {
               it. Not theory. The same process I used at every stage of Hush.
             </p>
           </div>
-          <div className="flex shrink-0 gap-10 lg:flex-col lg:gap-9 lg:text-right">
+          <div className="flex shrink-0 flex-col gap-8 md:flex-row md:gap-10 lg:flex-col lg:gap-9 lg:text-right">
             <div>
               <p className="font-display text-6xl leading-none tabular-nums md:text-7xl">15,000+</p>
-              <p className="mt-1 text-xs tracking-[0.22em] text-forest/75">PEOPLE THROUGH IT</p>
+              <p className="mt-1 max-w-[220px] text-xs tracking-[0.22em] text-forest/75 lg:max-w-none">PEOPLE THROUGH IT</p>
             </div>
             <div>
               <p className="font-display text-6xl leading-none tabular-nums md:text-7xl">13</p>
-              <p className="mt-1 text-xs tracking-[0.22em] text-forest/75">YEARS TEACHING IT</p>
+              <p className="mt-1 max-w-[220px] text-xs tracking-[0.22em] text-forest/75 lg:max-w-none">YEARS TEACHING IT</p>
             </div>
           </div>
         </div>
@@ -460,7 +460,7 @@ function Podcast() {
   const episodes = [
     {
       title:
-        "Scaling a Billion-Dollar Brand — with George Heaton of Represent",
+        "Scaling a Billion-Dollar Brand: George Heaton of Represent",
       href: "https://podcasts.apple.com/us/podcast/founder2founder-with-aaron-spivak/id1800303984",
     },
     {
@@ -538,7 +538,7 @@ function Podcast() {
             >
               <p className="text-[11px] tracking-[0.24em] text-cream/50">PODCAST</p>
               <p className="font-display text-2xl text-cream transition group-hover:text-gold">
-                &ldquo;I sold my company for $48,000,000 — and felt nothing.&rdquo;
+                &ldquo;I sold my company for $48,000,000 and felt nothing.&rdquo;
               </p>
               <p className="text-sm text-cream/60">Reroot with Eamon &amp; Bec · May 2025</p>
             </a>
